@@ -240,4 +240,88 @@ class BoardView @JvmOverloads constructor(
 
         // head
         paintCell.color = color
-        canvas.drawCircle(x1, y1, w * 0.9f,
+        canvas.drawCircle(x1, y1, w * 0.9f, paintCell)
+        paintCell.color = 0xFFFFFFFF.toInt()
+        canvas.drawCircle(x1 - w * 0.32f, y1 - w * 0.2f, w * 0.22f, paintCell)
+        canvas.drawCircle(x1 + w * 0.32f, y1 - w * 0.2f, w * 0.22f, paintCell)
+        paintCell.color = 0xFF000000.toInt()
+        canvas.drawCircle(x1 - w * 0.32f, y1 - w * 0.2f, w * 0.1f, paintCell)
+        canvas.drawCircle(x1 + w * 0.32f, y1 - w * 0.2f, w * 0.1f, paintCell)
+
+        // tongue
+        paintSnake.color = 0xFFFF1744.toInt()
+        paintSnake.strokeWidth = 2f
+        canvas.drawLine(x1, y1 + w * 0.7f, x1, y1 + w * 1.25f, paintSnake)
+
+        drawBadge(canvas, x2, y2, to.toString(), 0xFFB71C1C.toInt())
+    }
+
+    private fun drawBadge(canvas: Canvas, x: Float, y: Float, text: String, color: Int) {
+        paintCell.color = color
+        canvas.drawCircle(x, y, cellW * 0.13f, paintCell)
+        paintBorder.color = 0xFFFFFFFF.toInt()
+        paintBorder.strokeWidth = 1.5f
+        canvas.drawCircle(x, y, cellW * 0.13f, paintBorder)
+        paintTokenText.textSize = cellH * 0.14f
+        canvas.drawText(text, x, y + cellH * 0.05f, paintTokenText)
+        paintTokenText.textSize = cellH * 0.55f
+    }
+
+    private fun drawTokens(canvas: Canvas) {
+        // Kelompokkan berdasarkan posisi
+        val byPos = tokens.groupBy { it.position }
+        for ((pos, group) in byPos) {
+            val baseX = cellCenterX(pos)
+            val baseY = cellCenterY(pos) + cellH * 0.1f
+            val n = group.size
+            group.forEachIndexed { i, token ->
+                val offsetX = if (n == 1) 0f else (i - (n - 1) / 2f) * cellW * 0.35f
+                val px = baseX + offsetX
+                val py = baseY
+
+                // Glow jika giliran aktif & user bisa langkah
+                if (token.player == activePlayer && allowUserStep) {
+                    paintGlow.color = 0x884CAF50.toInt()
+                    canvas.drawCircle(px, py, cellW * 0.45f, paintGlow)
+                }
+
+                paintToken.color = if (token.player == 1) 0xFFE64A19.toInt() else 0xFF1565C0.toInt()
+                canvas.drawCircle(px, py, cellW * 0.32f, paintToken)
+                paintBorder.color = 0xFFFFFFFF.toInt()
+                paintBorder.strokeWidth = 2f
+                canvas.drawCircle(px, py, cellW * 0.32f, paintBorder)
+
+                paintTokenText.textSize = cellH * 0.45f
+                val fm = paintTokenText.fontMetrics
+                val textY = py - (fm.ascent + fm.descent) / 2f
+                canvas.drawText(token.emoji, px, textY, paintTokenText)
+            }
+        }
+    }
+
+    override fun onTouchEvent(event: MotionEvent): Boolean {
+        return gestureDetector.onTouchEvent(event) || super.onTouchEvent(event)
+    }
+
+    /**
+     * Animasi bidak berjalan dari posisi A ke B.
+     * Untuk step manual, dipanggil per kotak.
+     */
+    fun animateTokenStep(token: PlayerToken, target: Int, onEnd: () -> Unit) {
+        val startVal = animPositions[token.player] ?: token.position.toFloat()
+        val anim = ValueAnimator.ofFloat(startVal, target.toFloat())
+        anim.duration = 250
+        anim.interpolator = LinearInterpolator()
+        anim.addUpdateListener { va ->
+            animPositions[token.player] = va.animatedValue as Float
+            invalidate()
+        }
+        anim.addListener(object : android.animation.AnimatorListenerAdapter() {
+            override fun onAnimationEnd(animation: android.animation.Animator) {
+                animPositions.remove(token.player)
+                onEnd()
+            }
+        })
+        anim.start()
+    }
+}
