@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">PLA Ular Tangga</string>
+    <string name="title">🐍 PLA Ular Tangga 🪜</string>
+    <string name="tagline">Ular Tangga Klasik Nusantara</string>
+    <string name="play_ai">🤖 Lawan AI</string>
+    <string name="play_local">👥 2 Pemain Lokal</string>
+    <string name="help">❓ Cara Bermain</string>
+    <string name="select_character">Pilih Karakter</string>
+    <string name="select_difficulty">Pilih Tingkat AI</string>
+    <string name="easy">😊 Mudah</string>
+    <string name="medium">😐 Sedang</string>
+    <string name="hard">😤 Sulit</string>
+    <string name="back">← Kembali</string>
+    <string name="home">🏠 Beranda</string>
+    <string name="roll_dice">🎲 Kocok Dadu</string>
+    <string name="step_1">➡️ Langkah 1</string>
+    <string name="step_n">➡️ Langkah %1$d</string>
+    <string name="turn_you">Giliran: Kamu</string>
+    <string name="turn_ai">Giliran: AI</string>
+    <string name="turn_p1">Giliran: Pemain 1</string>
+    <string name="turn_p2">Giliran: Pemain 2</string>
+    <string name="ai_thinking">🤔 AI berpikir...</string>
+    <string name="level">Level: %1$d</string>
+    <string name="coins">💰 Rp %1$d</string>
+    <string name="wins">🏆 Menang: %1$d</string>
+    <string name="win_title">🎉 Kamu Menang!</string>
+    <string name="win_text">Selamat! Kamu mencapai kotak 100 lebih dulu.\nHadiah: Rp 100</string>
+    <string name="lose_title">😢 Kamu Kalah</string>
+    <string name="lose_text">AI mencapai kotak 100 lebih dulu.\nCoba lagi!</string>
+    <string name="p1_win_title">🏆 Pemain 1 Menang!</string>
+    <string name="p2_win_title">🏆 Pemain 2 Menang!</string>
+    <string name="p_win_text">Pemain %1$d mencapai kotak 100.\nHadiah hiburan: Rp 50</string>
+    <string name="main_menu">Menu Utama</string>
+    <string name="retry">🔄 Ulangi</string>
+    <string name="help_text">1. Kocok dadu dengan tombol besar.\n2. Setelah dadu keluar, bidakmu berkedip hijau.\n3. Tekan / geser / usap bidakmu untuk melangkah 1 kotak.\n4. Ulangi sampai langkah habis.\n5. Jika mendarat di kaki tangga → naik.\n6. Jika mendarat di kepala ular → turun.\n7. Siapa pun yang pertama mencapai kotak 100 menang!\n\n🤖 Mode AI: AI bermain cerdas, tapi tidak curang (dadu tetap acak).\n👥 Mode 2 Pemain: bergantian di HP yang sama.</string>
+    <string name="understand">Mengerti</string>
+    <string name="tap_hint">👆 Tekan atau geser bidakmu untuk melangkah</string>
+    <string name="ai_turn_wait">Giliran AI — tunggu ya...</string>
+</resources>
