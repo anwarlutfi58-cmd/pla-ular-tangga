@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="bg_dark">#0E1A24</color>
+    <color name="bg_darker">#091219</color>
+    <color name="panel">#1A2A36</color>
+    <color name="panel_light">#243848</color>
+    <color name="primary">#3D8EC9</color>
+    <color name="primary_light">#5BAEE0</color>
+    <color name="primary_dark">#276A9A</color>
+    <color name="accent">#FFB74D</color>
+    <color name="gold">#F5C542</color>
+    <color name="success">#4CAF50</color>
+    <color name="danger">#E57373</color>
+    <color name="text">#F0F4F7</color>
+    <color name="text_soft">#8BA3B5</color>
+
+    <color name="cell_red">#FFCDD2</color>
+    <color name="cell_pink">#F8BBD0</color>
+    <color name="cell_purple">#E1BEE7</color>
+    <color name="cell_indigo">#D1C4E9</color>
+    <color name="cell_blue">#BBDEFB</color>
+    <color name="cell_cyan">#B3E5FC</color>
+    <color name="cell_teal">#B2DFDB</color>
+    <color name="cell_green">#C8E6C9</color>
+    <color name="cell_yellow">#FFF9C4</color>
+    <color name="cell_orange">#FFE0B2</color>
+
+    <color name="board_border">#5D4037</color>
+    <color name="ladder_wood">#8D5524</color>
+    <color name="ladder_rung">#A1887F</color>
+    <color name="snake1">#E53935</color>
+    <color name="snake2">#8E24AA</color>
+    <color name="snake3">#00897B</color>
+    <color name="snake4">#F4511E</color>
+    <color name="snake5">#3949AB</color>
+    <color name="snake6">#43A047</color>
+    <color name="snake7">#D81B60</color>
+    <color name="snake8">#6D4C41</color>
+    <color name="snake9">#00ACC1</color>
+
+    <color name="token_p1">#E64A19</color>
+    <color name="token_p2">#1565C0</color>
+</resources>
