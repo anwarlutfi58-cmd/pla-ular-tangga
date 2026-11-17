@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="pad">16dp</dimen>
+    <dimen name="pad_sm">8dp</dimen>
+    <dimen name="radius">16dp</dimen>
+    <dimen name="radius_sm">10dp</dimen>
+</resources>
